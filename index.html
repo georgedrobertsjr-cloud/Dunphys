@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dunphy's Ice Cream | Bristol, CT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-vanilla: #FFFDF5;
+            --primary-strawberry: #FF8A80;
+            --secondary-chocolate: #4E342E;
+            --highlight-mint: #B2DFDB;
+            --cta-cherry: #D32F2F;
+            --text-color: #4E342E;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--bg-vanilla);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Fredoka One', cursive;
+            margin-top: 0;
+        }
+
+        .special-highlight {
+            font-family: 'Pacifico', cursive;
+            color: var(--primary-strawberry);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.8rem;
+            color: var(--primary-strawberry);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--secondary-chocolate);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-strawberry);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('hero_ice_cream.png');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+            color: #fff;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--cta-cherry);
+            color: #fff;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-family: 'Fredoka One', cursive;
+            transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            background-color: #b71c1c;
+            box-shadow: 0 6px 20px rgba(211, 47, 47, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: var(--primary-strawberry);
+            box-shadow: 0 4px 15px rgba(255, 138, 128, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background-color: #ff5252;
+            box-shadow: 0 6px 20px rgba(255, 138, 128, 0.4);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--highlight-mint);
+            border-radius: 2px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: #fff;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 2px solid var(--highlight-mint);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-card h3 {
+            color: var(--primary-strawberry);
+            margin-bottom: 15px;
+        }
+
+        .service-card img {
+            width: 100%;
+            max-width: 250px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .about {
+            background-color: var(--highlight-mint);
+            border-radius: 50px 50px 0 0;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-stats {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .stat {
+            background: #fff;
+            padding: 15px 25px;
+            border-radius: 15px;
+            text-align: center;
+            flex: 1;
+        }
+
+        .stat-value {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.5rem;
+            color: var(--cta-cherry);
+            display: block;
+        }
+
+        .info-bar {
+            background-color: var(--secondary-chocolate);
+            color: #fff;
+            padding: 60px 0;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .info-item h3 {
+            color: var(--highlight-mint);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .info-item p {
+            margin: 5px 0;
+            font-size: 1.1rem;
+        }
+
+        .info-item a {
+            color: var(--primary-strawberry);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #3e2723;
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Sticky Footer */
+        .mobile-footer-nav {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #fff;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            z-index: 2000;
+            padding: 10px 0;
+        }
+
+        .mobile-footer-nav .container {
+            display: flex;
+            justify-content: space-around;
+            padding: 0;
+        }
+
+        .mobile-btn {
+            text-decoration: none;
+            color: var(--secondary-chocolate);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .mobile-btn i {
+            font-size: 1.2rem;
+            margin-bottom: 3px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            nav ul {
+                display: none; /* Hide desktop nav on mobile */
+            }
+            .mobile-footer-nav {
+                display: block;
+            }
+            body {
+                padding-bottom: 60px; /* Space for sticky footer */
+            }
+            header {
+                text-align: center;
+            }
+            .logo {
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Dunphy's Ice Cream</a>
+                <ul>
+                    <li><a href="#flavors">Flavors</a></li>
+                    <li><a href="#cakes">Cakes</a></li>
+                    <li><a href="#about">Our Story</a></li>
+                    <li><a href="#contact">Find Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Sweet Memories, <br><span class="special-highlight">One Scoop at a Time.</span></h1>
+                <p>Dunphy's Ice Cream - Bristol's Favorite Local Treat.</p>
+                <a href="#flavors" class="btn">Explore Our Flavors</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="flavors" class="services">
+        <div class="container">
+            <h2 class="section-title">Our Sweet Offerings</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="soft_serve.png" alt="Soft Serve Ice Cream">
+                    <h3>Soft Serve</h3>
+                    <p>Experience creamy perfection with our 24 flavors of delicious soft serve. From classic vanilla to seasonal surprises!</p>
+                </div>
+                <div class="service-card">
+                    <img src="custom_cake_display.png" alt="Custom Ice Cream Cake">
+                    <h3>Custom Cakes</h3>
+                    <p>Make your celebration unforgettable with our hand-crafted Ice Cream Cakes, Pies & Cupcakes. Tailored to your favorite flavors.</p>
+                </div>
+                <div class="service-card">
+                    <img src="grab_and_go.png" alt="Grab and Go Treats">
+                    <h3>Grab & Go</h3>
+                    <p>In a hurry? Pick up our "Sugar Comes to go" and other ready-to-eat frozen treats. Perfect for the road or your freezer at home!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="about_lifestyle.png" alt="Happy family at Dunphy's" style="width: 100%; border-radius: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
+                </div>
+                <div class="about-text">
+                    <h2 class="section-title" style="text-align: left; margin-left: 0;">Our Story</h2>
+                    <p>At Dunphy's, we believe in the magic of a local ice cream shop. We've built our reputation on <strong>Fresh Ingredients</strong> and our deep <strong>Local Roots</strong> in Bristol, CT.</p>
+                    <p>Whether you're craving a scoop of premium Hershey's Ice Cream or a custom-made cake for a special birthday, we're here to serve up smiles and sweet memories.</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <span class="stat-value">4.7 Stars</span>
+                            On Google Maps
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">24+</span>
+                            Soft Serve Flavors
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="info-bar">
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-item">
+                    <h3>Visit Us</h3>
+                    <p>912 Stafford Ave</p>
+                    <p>Bristol, CT 06010</p>
+                    <p><a href="https://www.google.com/maps/search/?api=1&query=Dunphy%27s+Ice+Cream+Bristol+CT" target="_blank">Get Directions</a></p>
+                </div>
+                <div class="info-item">
+                    <h3>Call Us</h3>
+                    <p>(860) 845-8873</p>
+                    <p>Email: <a href="mailto:dunphysicecream@gmail.com">dunphysicecream@gmail.com</a></p>
+                </div>
+                <div class="info-item">
+                    <h3>Follow Us</h3>
+                    <p>Stay updated on seasonal flavors!</p>
+                    <p><a href="https://www.facebook.com/DunphysIceCream" target="_blank">Facebook Page</a></p>
+                </div>
+                <div class="info-item">
+                    <h3>Hours</h3>
+                    <p>Open Daily at 1:00 PM</p>
+                    <p><em>Check Facebook for seasonal hours</em></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Dunphy's Ice Cream. All rights reserved.</p>
+            <p>Made with &hearts; for the Bristol community.</p>
+        </div>
+    </footer>
+
+    <!-- Mobile Sticky Footer Navigation -->
+    <div class="mobile-footer-nav">
+        <div class="container">
+            <a href="tel:8608458873" class="mobile-btn">
+                <span>📞 Call</span>
+            </a>
+            <a href="https://www.google.com/maps/search/?api=1&query=Dunphy%27s+Ice+Cream+Bristol+CT" target="_blank" class="mobile-btn">
+                <span>📍 Directions</span>
+            </a>
+            <a href="https://www.facebook.com/DunphysIceCream" target="_blank" class="mobile-btn">
+                <span>FB</span>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
